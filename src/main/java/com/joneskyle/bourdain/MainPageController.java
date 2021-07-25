@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainPageController {
 
     @Autowired
-    private ProductService productService;
+    private RecipeService recipeService;
 
     @GetMapping("/main")
     public String main(Authentication a, Model model) {
         model.addAttribute("username", a.getName());
-        model.addAttribute("products", productService.findAll());
+        model.addAttribute("recipes", recipeService.findAll());
         return "main.html";
     }
 }

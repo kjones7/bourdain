@@ -2,27 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Products</title>
+    <title>Recipes</title>
 </head>
 <body>
 <h2 th:text="'Hello, ' + ${username} + '!'" />
 <p><a href="/logout">Sign out here</a></p>
 
-<h2>These are all the products:</h2>
+<h2>These are all the recipes:</h2>
 <table>
     <thead>
     <tr>
-        <th> Name </th>
-        <th> Price </th>
+        <th> Title </th>
+        <th> Servings </th>
+        <th> Text </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${products.empty}">
-        <td colspan="2"> No Products Available </td>
+    <tr th:if="${recipes.empty}">
+        <td colspan="3"> No Recipes Available </td>
     </tr>
-    <tr th:each="book : ${products}">
-        <td><span th:text="${book.name}"> Name </span></td>
-        <td><span th:text="${book.price}"> Price </span></td>
+    <tr th:each="recipe : ${recipes}">
+        <td><span th:text="${recipe.title}"> Title </span></td>
+        <td><span th:text="${recipe.servings}"> Servings </span></td>
+        <td><span th:text="${recipe.text}"> Text </span></td>
     </tr>
     </tbody>
 </table>
